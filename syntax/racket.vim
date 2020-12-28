@@ -496,6 +496,16 @@ syn region racketStruc matchgroup=racketParen start="#{"rs=s+2 end="}"re=e-1 con
 syn region racketStruc matchgroup=racketParen start="\["rs=s+1 end="\]"re=e-1 contains=@racketNormal
 syn region racketStruc matchgroup=racketParen start="#\["rs=s+2 end="\]"re=e-1 contains=@racketNormal
 
+for lit in ['hash', 'hasheq', 'hasheqv']
+  execute printf('syntax match racketLit "\<%s\>" nextgroup=@racketParen containedin=ALLBUT,.*String,.*Comment', '#'.lit)
+endfor
+
+for lit in ['rx', 'rx#', 'px', 'px#']
+  execute printf('syntax match racketRe "\<%s\>" nextgroup=@racketString containedin=ALLBUT,.*String,.*Comment,', '#'.lit)
+endfor
+
+unlet lit
+
 " Simple literals
 syn region racketString start=/\%(\\\)\@<!"/ skip=/\\[\\"]/ end=/"/
 syn region racketString start=/#<<\z(.*\)$/ end=/^\z1$/
@@ -647,6 +657,9 @@ if version >= 508 || !exists("did_racket_syntax_inits")
   HiLink racketDelimiter          Delimiter
   HiLink racketParen              Delimiter
   HiLink racketConstant           Constant
+
+  HiLink racketLit Type
+  HiLink racketRe Type
 
   HiLink racketComment            Comment
   HiLink racketMultilineComment   Comment
