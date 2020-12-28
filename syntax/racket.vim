@@ -472,29 +472,18 @@ syn match racketDelimiter !\<\.\>!
 
 syn match racketSymbol    ,\k+,  contained
 
-syn cluster racketNormal  contains=racketSyntax,racketFunc,racketDelimiter
-syn cluster racketQuotedStuff  contains=racketSymbol
-syn cluster racketQuotedOrNormal  contains=racketDelimiter
+syn cluster racketTop contains=racketSyntax,racketFunc,racketDelimiter
 
 syn match racketConstant  ,\<\*\k\+\*\>,
 syn match racketConstant  ,\<<\k\+>\>,
 
-syn region racketQuotedStruc start="("rs=s+1 end=")"re=e-1     contains=@racketQuotedStuff,@racketQuotedOrNormal contained
-syn region racketQuotedStruc start="#("rs=s+2 end=")"re=e-1    contains=@racketQuotedStuff,@racketQuotedOrNormal contained
-syn region racketQuotedStruc start="{"rs=s+1 end="}"re=e-1   contains=@racketQuotedStuff,@racketQuotedOrNormal contained
-syn region racketQuotedStruc start="#{"rs=s+2 end="}"re=e-1  contains=@racketQuotedStuff,@racketQuotedOrNormal contained
-syn region racketQuotedStruc start="\["rs=s+1 end="\]"re=e-1   contains=@racketQuotedStuff,@racketQuotedOrNormal contained
-syn region racketQuotedStruc start="#\["rs=s+2 end="\]"re=e-1  contains=@racketQuotedStuff,@racketQuotedOrNormal contained
-
-syn cluster racketQuotedStuff  add=racketQuotedStruc
-
 " Non-quoted lists, and strings
-syn region racketStruc matchgroup=racketParen start="("rs=s+1 end=")"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="#("rs=s+2 end=")"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="{"rs=s+1 end="}"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="#{"rs=s+2 end="}"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="\["rs=s+1 end="\]"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="#\["rs=s+2 end="\]"re=e-1 contains=@racketNormal
+syn region racketStruc matchgroup=racketParen start="("rs=s+1 end=")"re=e-1 contains=@racketTop
+syn region racketStruc matchgroup=racketParen start="#("rs=s+2 end=")"re=e-1 contains=@racketTop
+syn region racketStruc matchgroup=racketParen start="{"rs=s+1 end="}"re=e-1 contains=@racketTop
+syn region racketStruc matchgroup=racketParen start="#{"rs=s+2 end="}"re=e-1 contains=@racketTop
+syn region racketStruc matchgroup=racketParen start="\["rs=s+1 end="\]"re=e-1 contains=@racketTop
+syn region racketStruc matchgroup=racketParen start="#\["rs=s+2 end="\]"re=e-1 contains=@racketTop
 
 for lit in ['hash', 'hasheq', 'hasheqv']
   execute printf('syntax match racketLit "\<%s\>" nextgroup=@racketParen containedin=ALLBUT,.*String,.*Comment', '#'.lit)
@@ -510,8 +499,7 @@ unlet lit
 syn region racketString start=/\%(\\\)\@<!"/ skip=/\\[\\"]/ end=/"/
 syn region racketString start=/#<<\z(.*\)$/ end=/^\z1$/
 
-syn cluster racketNormal  add=racketError,racketConstant,racketStruc,racketString
-syn cluster racketQuotedOrNormal  add=racketString
+syn cluster racketTop  add=racketError,racketConstant,racketStruc,racketString
 
 " Numbers
 
@@ -575,8 +563,7 @@ syn match racketChar    "\<#\\[0-7]\{1,3}\>"
 syn match racketChar    "\<#\\x[0-9a-f]\{1,2}\>"
 syn match racketChar    "\<#\\u[0-9a-f]\{1,6}\>"
 
-syn cluster racketNormal  add=racketNumber,racketBoolean,racketChar
-syn cluster racketQuotedOrNormal  add=racketNumber,racketBoolean
+syn cluster racketTop  add=racketNumber,racketBoolean,racketChar
 
 " Command-line parsing
 syn keyword racketExtFunc command-line current-command-line-arguments once-any help-labels multi once-each
@@ -584,34 +571,17 @@ syn keyword racketExtFunc command-line current-command-line-arguments once-any h
 syn match racketSyntax    "#lang "
 syn match racketExtSyntax "#:\k\+"
 
-syn cluster racketNormal  add=racketExtFunc,racketExtSyntax
+syn cluster racketTop  add=racketExtFunc,racketExtSyntax
 
 " syntax quoting, unquoting and quasiquotation
-syn region racketQuoted matchgroup=racketParen start="['`]" end=![ \t()\[\]";]!me=e-1 contains=@racketQuotedStuff,@racketQuotedOrNormal
-syn region racketQuoted matchgroup=racketParen start="['`](" matchgroup=racketParen end=")" contains=@racketQuotedStuff,@racketQuotedOrNormal
-syn region racketQuoted matchgroup=racketParen start="['`]\?#(" matchgroup=racketParen end=")" contains=@racketQuotedStuff,@racketQuotedOrNormal
+syn match racketQuote "#\?['`]"
 
-syn region racketUnquote matchgroup=racketParen start="#,"rs=s+2 end=![ \t\[\]()";]!re=e-1,me=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start="#,@"rs=s+3 end=![ \t\[\]()";]!re=e-1,me=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start="#,("rs=s+3 end=")"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start="#,@("rs=s+4 end=")"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start="#,\["rs=s+3 end="\]"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start="#,@\["rs=s+4 end="\]"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=","rs=s+1 end=![ \t\[\]()";]!re=e-1,me=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",@"rs=s+2 end=![ \t\[\]()";]!re=e-1,me=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",("rs=s+2 end=")"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",@("rs=s+3 end=")"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",#("rs=s+3 end=")"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",@#("rs=s+4 end=")"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",\["rs=s+2 end="\]"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",@\["rs=s+3 end="\]"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",#\["rs=s+3 end="\]"re=e-1 contained contains=@racketNormal
-syn region racketUnquote matchgroup=racketParen start=",@#\["rs=s+4 end="\]"re=e-1 contained contains=@racketNormal
-
-syn cluster racketQuotedStuff add=racketUnquote
-
-syn region racketQuoted matchgroup=racketParen start="#['`]"rs=s+2 end=![ \t()\[\]";]!re=e-1,me=e-1 contains=@racketQuotedStuff,@racketQuotedOrNormal
-syn region racketQuoted matchgroup=racketParen start="#['`]("rs=s+3 matchgroup=racketParen end=")"re=e-1 contains=@racketQuotedStuff,@racketQuotedOrNormal
+syn match racketUnquote "#,"
+syn match racketUnquote "#,@"
+syn match racketUnquote ","
+syn match racketUnquote ",#"
+syn match racketUnquote ",@"
+syn match racketUnquote ",@#"
 
 " Comments
 syn match racketComment /;.*$/ contains=racketTodo,racketNote,@Spell
@@ -620,9 +590,7 @@ syn region racketMultilineComment start=/#|/ end=/|#/ contains=racketMultilineCo
 syn keyword racketTodo FIXME TODO XXX contained
 syntax match racketNote /\CNOTE\ze:\?/ contained
 
-syn cluster racketNormal  add=racketQuoted,racketComment,racketMultilineComment
-syn cluster racketQuotedOrNormal  add=racketComment,racketMultilineComment
-
+syn cluster racketTop  add=racketQuote,racketUnquote,racketComment,racketMultilineComment
 
 " Synchronization and the wrapping up...
 syn sync match matchPlace grouphere NONE "^[^ \t]"
@@ -650,8 +618,8 @@ if version >= 508 || !exists("did_racket_syntax_inits")
   HiLink racketNumberError        Error
   HiLink racketContainedNumberError Error
 
-  HiLink racketQuoted             Structure
-  HiLink racketQuotedStruc        Structure
+  HiLink racketQuote              SpecialChar
+  HiLink racketUnquote            SpecialChar
   HiLink racketSymbol             Structure
 
   HiLink racketDelimiter          Delimiter
