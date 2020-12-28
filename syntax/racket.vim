@@ -489,12 +489,12 @@ syn region racketQuotedStruc start="#\["rs=s+2 end="\]"re=e-1  contains=@racketQ
 syn cluster racketQuotedStuff  add=racketQuotedStruc
 
 " Non-quoted lists, and strings
-syn region racketStruc matchgroup=racketParen start="("rs=s+1 matchgroup=racketParen end=")"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="#("rs=s+2 matchgroup=racketParen end=")"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="{"rs=s+1 matchgroup=racketParen end="}"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="#{"rs=s+2 matchgroup=racketParen end="}"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="\["rs=s+1 matchgroup=racketParen end="\]"re=e-1 contains=@racketNormal
-syn region racketStruc matchgroup=racketParen start="#\["rs=s+2 matchgroup=racketParen end="\]"re=e-1 contains=@racketNormal
+syn region racketStruc matchgroup=racketParen start="("rs=s+1 end=")"re=e-1 contains=@racketNormal
+syn region racketStruc matchgroup=racketParen start="#("rs=s+2 end=")"re=e-1 contains=@racketNormal
+syn region racketStruc matchgroup=racketParen start="{"rs=s+1 end="}"re=e-1 contains=@racketNormal
+syn region racketStruc matchgroup=racketParen start="#{"rs=s+2 end="}"re=e-1 contains=@racketNormal
+syn region racketStruc matchgroup=racketParen start="\["rs=s+1 end="\]"re=e-1 contains=@racketNormal
+syn region racketStruc matchgroup=racketParen start="#\["rs=s+2 end="\]"re=e-1 contains=@racketNormal
 
 " Simple literals
 syn region racketString start=/\%(\\\)\@<!"/ skip=/\\[\\"]/ end=/"/
