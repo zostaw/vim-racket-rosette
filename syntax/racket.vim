@@ -586,11 +586,12 @@ syn match racketUnquote ",@#"
 " Comments
 syn match racketComment /;.*$/ contains=racketTodo,racketNote,@Spell
 syn region racketMultilineComment start=/#|/ end=/|#/ contains=racketMultilineComment,racketTodo,racketNote,@Spell
+syn match racketFormComment "#;" nextgroup=@racketTop
 
 syn keyword racketTodo FIXME TODO XXX contained
 syntax match racketNote /\CNOTE\ze:\?/ contained
 
-syn cluster racketTop  add=racketQuote,racketUnquote,racketComment,racketMultilineComment
+syn cluster racketTop  add=racketQuote,racketUnquote,racketComment,racketMultilineComment,racketFormComment
 
 " Synchronization and the wrapping up...
 syn sync match matchPlace grouphere NONE "^[^ \t]"
@@ -631,6 +632,7 @@ if version >= 508 || !exists("did_racket_syntax_inits")
 
   HiLink racketComment            Comment
   HiLink racketMultilineComment   Comment
+  HiLink racketFormComment        SpecialChar
   HiLink racketTodo               Todo
   HiLink racketNote               SpecialComment
   HiLink racketError              Error
