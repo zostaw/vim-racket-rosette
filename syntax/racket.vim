@@ -579,9 +579,7 @@ syn match racketQuote "#\?['`]"
 syn match racketUnquote "#,"
 syn match racketUnquote "#,@"
 syn match racketUnquote ","
-syn match racketUnquote ",#"
 syn match racketUnquote ",@"
-syn match racketUnquote ",@#"
 
 " Comments
 syn match racketComment /;.*$/ contains=racketTodo,racketNote,@Spell
