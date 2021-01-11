@@ -45,7 +45,11 @@ setl makeprg=raco\ make\ --\ %
 " but then vim says:
 "    "press ENTER or type a command to continue"
 " We avoid the annoyance of having to hit enter by remapping K directly.
-nnoremap <buffer> <Plug>RacketDoc :silent !raco docs <cword><cr>:redraw!<cr>
+function s:RacketDoc(word) abort
+  execute 'silent !raco docs --' shellescape(a:word)
+  redraw!
+endfunction
+nnoremap <buffer> <Plug>RacketDoc :call <SID>RacketDoc(expand('<cword>'))<CR>
 if maparg("K", "n") == ""
   nmap <buffer> K <Plug>RacketDoc
 endif
