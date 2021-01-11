@@ -213,7 +213,7 @@ syn keyword racketFunc locale-string-encoding
 syn keyword racketFunc char? char->integer integer->char
 syn keyword racketFunc char=? char<? char<=? char>? char>=?
 syn keyword racketFunc char-ci=? char-ci<? char-ci<=? char-ci>? char-ci>=?
-syn keyword racketFunc char-alphabetic? char-lowercase? char-uppercase? char-title-case?
+syn keyword racketFunc char-alphabetic? char-lower-case? char-upper-case? char-title-case?
 syn keyword racketFunc char-numeric? char-symbolic? char-punctuation? char-graphic?
 syn keyword racketFunc char-whitespace? char-blank?
 syn keyword racketFunc char-iso-control? char-general-category
