@@ -11,8 +11,6 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn case ignore
-
 " Highlight unmatched parens
 syn match racketError ,[]})],
 
