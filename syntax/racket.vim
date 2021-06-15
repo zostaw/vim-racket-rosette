@@ -17,7 +17,13 @@ syn match racketError ,[]})],
 if version < 600
   set iskeyword=33,35-39,42-58,60-90,94,95,97-122,126,_
 else
-  setlocal iskeyword=33,35-39,42-58,60-90,94,95,97-122,126,_
+  " syntax iskeyword 33,35-39,42-58,60-90,94,95,97-122,126,_
+  " converted from decimal to char
+  " :s/\d\+/\=submatch(0)->str2nr()->nr2char()/g
+  " but corrected to remove duplicate _, move ^ to end
+  syntax iskeyword !,#-',*-:,<-Z,a-z,~,_,^
+  " expanded
+  " syntax iskeyword !,#,$,%,&,',*,+,,,-,.,/,0-9,:,<,=,>,?,@,A-Z,_,a-z,~,^
 endif
 
 " Forms in order of appearance at
