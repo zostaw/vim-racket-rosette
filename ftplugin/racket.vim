@@ -38,8 +38,6 @@ setl lisp
 setl comments+=:;;;;,:;;;,:;;,:;
 setl formatoptions+=r
 
-setl makeprg=raco\ make\ --\ %
-
 " Simply setting keywordprg like this works:
 "    setl keywordprg=raco\ docs
 " but then vim says:
