@@ -21,7 +21,7 @@ else
   " converted from decimal to char
   " :s/\d\+/\=submatch(0)->str2nr()->nr2char()/g
   " but corrected to remove duplicate _, move ^ to end
-  syntax iskeyword !,#-',*-:,<-Z,a-z,~,_,^
+  syntax iskeyword @,!,#-',*-:,<-Z,a-z,~,_,^
   " expanded
   " syntax iskeyword !,#,$,%,&,',*,+,,,-,.,/,0-9,:,<,=,>,?,@,A-Z,_,a-z,~,^
 endif
