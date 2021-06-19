@@ -563,9 +563,9 @@ syn match racketChar    "\<#\\linefeed\>"
 syn match racketChar    "\<#\\vtab\>"
 syn match racketChar    "\<#\\page\>"
 syn match racketChar    "\<#\\rubout\>"
-syn match racketChar    "\<#\\[0-7]\{1,3}\>"
-syn match racketChar    "\<#\\x[0-9a-f]\{1,2}\>"
-syn match racketChar    "\<#\\u[0-9a-f]\{1,6}\>"
+syn match racketChar    "\<#\\\o\{1,3}\>"
+syn match racketChar    "\<#\\x\x\{1,2}\>"
+syn match racketChar    "\<#\\u\x\{1,6}\>"
 
 syn cluster racketTop  add=racketNumber,racketBoolean,racketChar
 
