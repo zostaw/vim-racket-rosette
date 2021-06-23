@@ -14,6 +14,7 @@ setl lispwords+=define/contract
 setl lispwords+=λ
 setl lispwords+=with-handlers
 setl lispwords+=define-values,opt-lambda,case-lambda,syntax-rules,with-syntax,syntax-case,syntax-parse
+setl lispwords+=define-syntax-parse-rule
 setl lispwords+=define-signature,unit,unit/sig,compund-unit/sig,define-values/invoke-unit/sig
 setl lispwords+=define-opt/c,define-syntax-rule
 setl lispwords+=define-test-suite
