@@ -78,6 +78,6 @@ setl commentstring=#\|\ %s\ \|#
 " (this should be amended if settings/mappings are added above!)
 let b:undo_ftplugin =
       \  "setl iskeyword< lispwords< lisp< comments< formatoptions<"
-      \. "| setl makeprg< commentstring<"
+      \. "| setl commentstring<"
       \. "| nunmap <buffer> K"
       \. "| vunmap <buffer> K"
