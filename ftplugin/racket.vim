@@ -29,6 +29,7 @@ setl lispwords+=fresh,run,run*,project,conde,condu
 " loops
 setl lispwords+=for,for/list,for/fold,for*,for*/list,for*/fold,for/or,for/and
 setl lispwords+=for/hash,for/sum,for/flvector,for*/flvector,for/vector,for*/vector
+setl lispwords+=for/async
 
 setl lispwords+=match,match*,match/values,define/match,match-lambda,match-lambda*,match-lambda**
 setl lispwords+=match-let,match-let*,match-let-values,match-let*-values
