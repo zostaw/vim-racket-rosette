@@ -19,6 +19,7 @@ setl lispwords+=define-signature,unit,unit/sig,compund-unit/sig,define-values/in
 setl lispwords+=define-opt/c,define-syntax-rule
 setl lispwords+=define-test-suite
 setl lispwords+=struct
+setl lispwords+=with-input-from-file,with-output-to-file
 
 " Racket OOP
 setl lispwords+=class,define/public,define/private
