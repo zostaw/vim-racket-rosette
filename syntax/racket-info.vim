@@ -37,8 +37,6 @@ syntax keyword infoPrimitive system-library-subpath getenv
 
 syntax match datumDelimiter !\<\.\>!
 
-syntax match infoSymbol ,\k+,  contained
-
 syntax cluster infoTop contains=infoSyntax,infoPrimitive,datumDelimiter
 
 syntax match infoConstant ,\<\*\k\+\*\>,
@@ -184,7 +182,6 @@ if version >= 508 || !exists("did_info_syntax_inits")
 
   HiLink infoQuote SpecialChar
   HiLink infoUnquote SpecialChar
-  HiLink infoSymbol Structure
 
   HiLink datumDelimiter Delimiter
   HiLink infoParen Delimiter

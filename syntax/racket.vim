@@ -474,8 +474,6 @@ syn keyword racketFunc seconds->date current-milliseconds
 
 syn match racketDelimiter !\<\.\>!
 
-syn match racketSymbol    ,\k+,  contained
-
 syn cluster racketTop contains=racketSyntax,racketFunc,racketDelimiter
 
 syn match racketConstant  ,\<\*\k\+\*\>,
@@ -623,7 +621,6 @@ if version >= 508 || !exists("did_racket_syntax_inits")
 
   HiLink racketQuote              SpecialChar
   HiLink racketUnquote            SpecialChar
-  HiLink racketSymbol             Structure
 
   HiLink racketDelimiter          Delimiter
   HiLink racketParen              Delimiter
