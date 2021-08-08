@@ -7,7 +7,7 @@ let b:did_ftplugin = 1
 
 setlocal lisp
 " quick hack to allow adding values
-setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,^
+setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,94
 setlocal lispwords=define
 
 " Enable auto begin new comment line when continuing from an old comment line

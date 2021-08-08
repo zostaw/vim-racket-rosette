@@ -8,7 +8,7 @@ endif
 let b:did_ftplugin = 1
 
 " quick hack to allow adding values
-setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,^
+setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,94
 setl lispwords+=module,module*,module+,parameterize,let-values,let*-values,letrec-values,local
 setl lispwords+=define/contract
 setl lispwords+=λ
