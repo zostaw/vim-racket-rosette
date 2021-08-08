@@ -12,8 +12,11 @@ setl formatoptions+=r
 "setl commentstring=;;%s
 setl commentstring=#\|\ %s\ \|#
 
+let b:ale_linter_aliases = ['racket']
+
 " Undo our settings when the filetype changes away from jsond
 " (this should be amended if settings/mappings are added above!)
 let b:undo_ftplugin =
       \  "setl comments< formatoptions<"
       \. "| setl commentstring<"
+      \. "| unlet b:ale_linter_aliases"

@@ -50,6 +50,8 @@ endif
 "setl commentstring=;;%s
 setl commentstring=#\|\ %s\ \|#
 
+let b:ale_linter_aliases = ['racket']
+
 " Undo our settings when the filetype changes away from Racket
 " (this should be amended if settings/mappings are added above!)
 let b:undo_ftplugin =
@@ -57,3 +59,4 @@ let b:undo_ftplugin =
       \. "| setl commentstring<"
       \. "| nunmap <buffer> K"
       \. "| vunmap <buffer> K"
+      \. "| unlet b:ale_linter_aliases"
