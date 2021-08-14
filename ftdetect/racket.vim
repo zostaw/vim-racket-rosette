@@ -1,4 +1,10 @@
-let g:racket_hash_lang_regexp = '^#lang\s\+\%\(\<at-exp\>\s\+\)\?\([^][)(}{[:space:]]\+\)'
+let g:racket_hash_lang_modifiers = [
+      \ 'at-exp',
+      \ ]
+
+let g:racket_hash_lang_modifiers_regex = '\%('.mapnew(g:racket_hash_lang_modifiers, {_, v -> printf('\<%s\>', escape(v, '\'))})->join('\|').'\)'
+
+let g:racket_hash_lang_regexp = '^#lang\s\+\%\('.g:racket_hash_lang_modifiers_regex.'\s\+\)\?\([^][)(}{[:space:]]\+\)'
 let g:racket_hash_lang_dict = get(g:, 'racket_hash_lang_dict',
       \ {
       \   'racket/base': 'racket',
