@@ -1,5 +1,6 @@
 let g:racket_hash_lang_modifiers = [
       \ 'at-exp',
+      \ 'pollen/mode',
       \ ]
 
 let g:racket_hash_lang_modifiers_regex = '\%('.mapnew(g:racket_hash_lang_modifiers, {_, v -> printf('\<%s\>', escape(v, '\'))})->join('\|').'\)'
