@@ -588,7 +588,7 @@ syn match racketComment /;.*$/ contains=racketTodo,racketNote,@Spell
 syn region racketMultilineComment start=/#|/ end=/|#/ contains=racketMultilineComment,racketTodo,racketNote,@Spell
 syn match racketFormComment "#;" nextgroup=@racketTop
 
-syn keyword racketTodo FIXME TODO XXX contained
+syn match racketTodo /\C\<\(FIXME\|TODO\|XXX\)\ze:\?\>/ contained
 syntax match racketNote /\CNOTE\ze:\?/ contained
 
 syn cluster racketTop  add=racketQuote,racketUnquote,racketComment,racketMultilineComment,racketFormComment
