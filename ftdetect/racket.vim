@@ -4,7 +4,7 @@ let g:racket_hash_lang_modifiers = get(g:, 'racket_hash_lang_modifiers', [])->ex
       \ ])
 
 let g:racket_hash_lang_modifiers_regex = get(g:, 'racket_hash_lang_modifiers_regex',
-      \ '\%('.mapnew(g:racket_hash_lang_modifiers, {_, v -> printf('\<%s\>', escape(v, '\'))})->join('\|').'\)')
+      \ '\%('.deepcopy(g:racket_hash_lang_modifiers)->map({_, v -> printf('\<%s\>', escape(v, '\'))})->join('\|').'\)')
 
 let g:racket_hash_lang_regexp = get(g:, 'racket_hash_lang_regexp',
       \ '^#lang\s\+\%\('.g:racket_hash_lang_modifiers_regex.'\s\+\)\?\([^][)(}{[:space:]]\+\)')
