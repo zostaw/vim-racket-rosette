@@ -1,14 +1,21 @@
-let g:racket_hash_lang_modifiers = get(g:, 'racket_hash_lang_modifiers', [])->extend([
+let g:racket_hash_lang_modifiers =
+      \ extend(get(g:, 'racket_hash_lang_modifiers', []), [
       \ 'at-exp',
       \ 'pollen/mode',
       \ ])
 
-let g:racket_hash_lang_modifiers_regex = get(g:, 'racket_hash_lang_modifiers_regex',
-      \ '\%('.deepcopy(g:racket_hash_lang_modifiers)->map({_, v -> printf('\<%s\>', escape(v, '\'))})->join('\|').'\)')
+let g:racket_hash_lang_modifiers_regex =
+      \ get(g:, 'racket_hash_lang_modifiers_regex',
+      \ '\%('.
+      \     join(map(deepcopy(g:racket_hash_lang_modifiers),
+      \              {_, v -> printf('\<%s\>', escape(v, '\'))}),
+      \     '\|')
+      \ .'\)')
 
 let g:racket_hash_lang_regexp = get(g:, 'racket_hash_lang_regexp',
       \ '^#lang\s\+\%\('.g:racket_hash_lang_modifiers_regex.'\s\+\)\?\([^][)(}{[:space:]]\+\)')
-let g:racket_hash_lang_dict = get(g:, 'racket_hash_lang_dict', #{})->extend({
+let g:racket_hash_lang_dict =
+      \ extend(get(g:, 'racket_hash_lang_dict', #{}), {
       \   'racket/base': 'racket',
       \   'typed/racket': 'racket',
       \   'typed/racket/base': 'racket',
