@@ -584,6 +584,7 @@ syn match racketUnquote ","
 syn match racketUnquote ",@"
 
 " Comments
+syn match racketSharpBang "\%^#![ /].*" display
 syn match racketComment /;.*$/ contains=racketTodo,racketNote,@Spell
 syn region racketMultilineComment start=/#|/ end=/|#/ contains=racketMultilineComment,racketTodo,racketNote,@Spell
 syn match racketFormComment "#;" nextgroup=@racketTop
@@ -632,6 +633,7 @@ if version >= 508 || !exists("did_racket_syntax_inits")
   HiLink racketComment            Comment
   HiLink racketMultilineComment   Comment
   HiLink racketFormComment        SpecialChar
+  HiLink racketSharpBang          Comment
   HiLink racketTodo               Todo
   HiLink racketNote               SpecialComment
   HiLink racketError              Error
