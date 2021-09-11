@@ -1,6 +1,7 @@
 let g:racket_hash_lang_modifiers =
       \ extend(get(g:, 'racket_hash_lang_modifiers', []), [
       \ 'at-exp',
+      \ 'errortrace',
       \ 'pollen/mode',
       \ ])
 
