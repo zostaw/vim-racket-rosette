@@ -1,6 +1,4 @@
-" Language:     Racket
-" Maintainer:   Will Langstroth <will@langstroth.com>
-" URL:          http://github.com/wlangstroth/vim-racket
+" Language:     info
 
 if exists("b:did_ftplugin")
   finish
@@ -28,7 +26,7 @@ if maparg("K", "n") == ""
   nmap <buffer> K <Plug>RacketDoc
 endif
 
-" For the visual mode K mapping, it's slightly more convoluted to get the 
+" For the visual mode K mapping, it's slightly more convoluted to get the
 " selected text:
 function! s:Racket_visual_doc()
   try
@@ -50,14 +48,7 @@ endif
 "setl commentstring=;;%s
 setl commentstring=#\|\ %s\ \|#
 
-if (has("gui_win32") || has("gui_gtk")) && !exists("b:browsefilter")
-  let b:browsefilter = "Racket Source Files (*.rkt *.rktl)\t*.rkt;*.rktl\n" .
-        \              "All Files (*.*)\t*.*\n"
-endif
-
-if exists("loaded_matchit") && !exists("b:match_words")
-  let b:match_words = '#|:|#'
-endif
+let b:ale_linter_aliases = ['racket']
 
 " Undo our settings when the filetype changes away from Racket
 " (this should be amended if settings/mappings are added above!)
@@ -66,5 +57,4 @@ let b:undo_ftplugin =
       \. "| setl commentstring<"
       \. "| nunmap <buffer> K"
       \. "| vunmap <buffer> K"
-      \. "| unlet! b:browsefilter"
-      \. "| unlet! b:match_words"
+      \. "| unlet b:ale_linter_aliases"
