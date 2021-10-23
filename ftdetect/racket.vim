@@ -1,6 +1,22 @@
-let g:racket_hash_lang_regexp = '^#lang\s\+\([^][)(}{[:space:]]\+\)'
-let g:racket_hash_lang_dict = get(g:, 'racket_hash_lang_dict',
-      \ {
+let g:racket_hash_lang_modifiers =
+      \ extend(get(g:, 'racket_hash_lang_modifiers', []), [
+      \ 'at-exp',
+      \ 'errortrace',
+      \ 'pollen/mode',
+      \ ])
+
+let g:racket_hash_lang_modifiers_regex =
+      \ get(g:, 'racket_hash_lang_modifiers_regex',
+      \ '\%('.
+      \     join(map(deepcopy(g:racket_hash_lang_modifiers),
+      \              {_, v -> printf('\<%s\>', escape(v, '\'))}),
+      \     '\|')
+      \ .'\)')
+
+let g:racket_hash_lang_regexp = get(g:, 'racket_hash_lang_regexp',
+      \ '^#lang\s\+\%\('.g:racket_hash_lang_modifiers_regex.'\s\+\)\?\([^][)(}{[:space:]]\+\)')
+let g:racket_hash_lang_dict =
+      \ extend(get(g:, 'racket_hash_lang_dict', #{}), {
       \   'racket/base': 'racket',
       \   'racket/gui': 'racket',
       \   'typed/racket': 'racket',
@@ -9,7 +25,9 @@ let g:racket_hash_lang_dict = get(g:, 'racket_hash_lang_dict',
       \   'br/quicklang': 'racket',
       \   'scribble/base': 'scribble',
       \   'scribble/manual': 'scribble',
-      \ })
+      \   'info': 'racket-info',
+      \   'setup/infotab': 'racket-info',
+      \ }, 'keep') " keep prefers user dict to the default
 
 " Tries to detect filetype from #lang line; defaults to ft=racket.
 function! RacketDetectHashLang()
