@@ -28,6 +28,7 @@ let g:racket_hash_lang_dict =
       \   'scribble/manual': 'scribble',
       \   'info': 'racket-info',
       \   'setup/infotab': 'racket-info',
+      \   'syntax/module-reader': 'racket',
       \ }, 'keep') " keep prefers user dict to the default
 
 " Tries to detect filetype from #lang line; defaults to ft=racket.
