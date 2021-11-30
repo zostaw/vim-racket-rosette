@@ -50,6 +50,11 @@ endif
 "setl commentstring=;;%s
 setl commentstring=#\|\ %s\ \|#
 
+if (has("gui_win32") || has("gui_gtk")) && !exists("b:browsefilter")
+  let b:browsefilter = "Racket Source Files (*.rkt *.rktl)\t*.rkt;*.rktl\n" .
+        \              "All Files (*.*)\t*.*\n"
+endif
+
 if exists("loaded_matchit") && !exists("b:match_words")
   let b:match_words = '#|:|#'
 endif
@@ -61,4 +66,5 @@ let b:undo_ftplugin =
       \. "| setl commentstring<"
       \. "| nunmap <buffer> K"
       \. "| vunmap <buffer> K"
+      \. "| unlet! b:browsefilter"
       \. "| unlet! b:match_words"
