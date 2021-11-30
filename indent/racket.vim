@@ -22,7 +22,7 @@ setlocal lispwords+=struct
 setlocal lispwords+=with-input-from-file,with-output-to-file
 
 " Racket OOP
-setlocal lispwords+=class,define/public,define/private
+setlocal lispwords+=class,define/public,define/private,define/override
 
 " kanren
 setlocal lispwords+=fresh,run,run*,project,conde,condu

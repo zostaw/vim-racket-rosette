@@ -18,6 +18,7 @@ let g:racket_hash_lang_regexp = get(g:, 'racket_hash_lang_regexp',
 let g:racket_hash_lang_dict =
       \ extend(get(g:, 'racket_hash_lang_dict', #{}), {
       \   'racket/base': 'racket',
+      \   'racket/gui': 'racket',
       \   'typed/racket': 'racket',
       \   'typed/racket/base': 'racket',
       \   'br': 'racket',
