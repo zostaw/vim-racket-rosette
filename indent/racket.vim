@@ -29,7 +29,7 @@ setlocal lispwords+=fresh,run,run*,project,conde,condu
 
 " loops
 setlocal lispwords+=for,for/list,for/fold,for*,for*/list,for*/fold,for/or,for/and,for*/or,for*/and
-setlocal lispwords+=for/hash,for/sum,for/flvector,for*/flvector,for/vector,for*/vector
+setlocal lispwords+=for/hash,for/sum,for/flvector,for*/flvector,for/vector,for*/vector,for*/sum,for*/hash
 setlocal lispwords+=for/async
 
 setlocal lispwords+=match,match*,match/values,define/match,match-lambda,match-lambda*,match-lambda**
