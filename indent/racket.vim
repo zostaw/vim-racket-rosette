@@ -36,4 +36,6 @@ setlocal lispwords+=match,match*,match/values,define/match,match-lambda,match-la
 setlocal lispwords+=match-let,match-let*,match-let-values,match-let*-values
 setlocal lispwords+=match-letrec,match-define,match-define-values
 
+setlocal lispwords+=let/cc,let/ec
+
 let b:undo_indent = "setlocal lisp< ai< si< lw<"
