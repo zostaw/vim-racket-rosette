@@ -3,10 +3,11 @@
 Installation
 ------------
 
-This module works with many Vim plugin managers. To use with pathogen, type the following into a terminal:
+This module works with native packages and many Vim plugin managers. To use with
+pathogen, type the following into a terminal:
 
     cd ~/.vim/bundle
-    git clone https://github.com/wlangstroth/vim-racket.git
+    git clone https://github.com/benknoble/vim-racket.git
 
 Re-open your file(s) and benefit from the features of _vim-racket_.
 
