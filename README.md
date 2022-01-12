@@ -11,6 +11,10 @@ pathogen, type the following into a terminal:
 
 Re-open your file(s) and benefit from the features of _vim-racket_.
 
+Pairs well with
+[rparen.vim](https://gist.github.com/plane/8c872ed174ba4f026b95ea8eb934cead), a
+global mapping on `]` to insert the right closer.
+
 ## Thanks
 
 Most of the real work on this module was done by [Dale
