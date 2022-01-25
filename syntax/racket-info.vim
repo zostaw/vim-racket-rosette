@@ -2,9 +2,7 @@
 " Language:     #lang info
 
 " Initializing:
-if version < 600
-  syntax clear
-elseif exists("b:current_syntax")
+if exists("b:current_syntax")
   finish
 endif
 
@@ -159,48 +157,36 @@ syntax sync match matchPlace grouphere NONE "^[^ \t]"
 " ... i.e. synchronize on a line that starts at the left margin
 
 " Define the default highlighting.
-" For version 5.7 and earlier: only when not done already
-" For version 5.8 and later: only when an item doesn't have highlighting yet
-if version >= 508 || !exists("did_info_syntax_inits")
-  if version < 508
-    let did_info_syntax_inits = 1
-    command -nargs=+ HiLink highlight link <args>
-  else
-    command -nargs=+ HiLink highlight def link <args>
-  endif
+highlight default link infoSyntax Statement
+highlight default link infoPrimitive Function
 
-  HiLink infoSyntax Statement
-  HiLink infoPrimitive Function
+highlight default link infoString String
+highlight default link infoChar Character
+highlight default link infoBoolean Boolean
 
-  HiLink infoString String
-  HiLink infoChar Character
-  HiLink infoBoolean Boolean
+highlight default link infoNumber Number
+highlight default link infoNumberError Error
+highlight default link infoContainedNumberError Error
 
-  HiLink infoNumber Number
-  HiLink infoNumberError Error
-  HiLink infoContainedNumberError Error
+highlight default link infoQuote SpecialChar
+highlight default link infoUnquote SpecialChar
 
-  HiLink infoQuote SpecialChar
-  HiLink infoUnquote SpecialChar
+highlight default link datumDelimiter Delimiter
+highlight default link infoParen Delimiter
+highlight default link infoConstant Constant
 
-  HiLink datumDelimiter Delimiter
-  HiLink infoParen Delimiter
-  HiLink infoConstant Constant
+highlight default link infoLit Type
+highlight default link infoRe Type
 
-  HiLink infoLit Type
-  HiLink infoRe Type
+highlight default link infoComment Comment
+highlight default link infoMultilineComment Comment
+highlight default link infoFormComment SpecialChar
+highlight default link infoTodo Todo
+highlight default link infoNote SpecialComment
+highlight default link infoError Error
+highlight default link fallbackError Error
 
-  HiLink infoComment Comment
-  HiLink infoMultilineComment Comment
-  HiLink infoFormComment SpecialChar
-  HiLink infoTodo Todo
-  HiLink infoNote SpecialComment
-  HiLink infoError Error
-  HiLink fallbackError Error
-
-  HiLink infoExtSyntax Type
-  HiLink infoExtFunc PreProc
-  delcommand HiLink
-endif
+highlight default link infoExtSyntax Type
+highlight default link infoExtFunc PreProc
 
 let b:current_syntax = "racket-info"

@@ -5,9 +5,7 @@
 " Description:  Contains all of the keywords in #lang racket
 
 " Initializing:
-if version < 600
-  syntax clear
-elseif exists("b:current_syntax")
+if exists("b:current_syntax")
   finish
 endif
 
@@ -618,51 +616,39 @@ syn sync match matchPlace grouphere NONE "^[^ \t]"
 " ... i.e. synchronize on a line that starts at the left margin
 
 " Define the default highlighting.
-" For version 5.7 and earlier: only when not done already
-" For version 5.8 and later: only when an item doesn't have highlighting yet
-if version >= 508 || !exists("did_racket_syntax_inits")
-  if version < 508
-    let did_racket_syntax_inits = 1
-    command -nargs=+ HiLink hi link <args>
-  else
-    command -nargs=+ HiLink hi def link <args>
-  endif
+highlight default link racketSyntax Statement
+highlight default link racketFunc Function
 
-  HiLink racketSyntax             Statement
-  HiLink racketFunc               Function
+highlight default link racketString String
+highlight default link racketStringEscape Special
+highlight default link racketUStringEscape Special
+highlight default link racketStringEscapeError Error
+highlight default link racketChar Character
+highlight default link racketBoolean Boolean
 
-  HiLink racketString             String
-  HiLink racketStringEscape       Special
-  HiLink racketUStringEscape      Special
-  HiLink racketStringEscapeError  Error
-  HiLink racketChar               Character
-  HiLink racketBoolean            Boolean
+highlight default link racketNumber Number
+highlight default link racketNumberError Error
+highlight default link racketContainedNumberError Error
 
-  HiLink racketNumber             Number
-  HiLink racketNumberError        Error
-  HiLink racketContainedNumberError Error
+highlight default link racketQuote SpecialChar
+highlight default link racketUnquote SpecialChar
 
-  HiLink racketQuote              SpecialChar
-  HiLink racketUnquote            SpecialChar
+highlight default link racketDelimiter Delimiter
+highlight default link racketParen Delimiter
+highlight default link racketConstant Constant
 
-  HiLink racketDelimiter          Delimiter
-  HiLink racketParen              Delimiter
-  HiLink racketConstant           Constant
+highlight default link racketLit Type
+highlight default link racketRe Type
 
-  HiLink racketLit Type
-  HiLink racketRe Type
+highlight default link racketComment Comment
+highlight default link racketMultilineComment Comment
+highlight default link racketFormComment SpecialChar
+highlight default link racketSharpBang Comment
+highlight default link racketTodo Todo
+highlight default link racketNote SpecialComment
+highlight default link racketError Error
 
-  HiLink racketComment            Comment
-  HiLink racketMultilineComment   Comment
-  HiLink racketFormComment        SpecialChar
-  HiLink racketSharpBang          Comment
-  HiLink racketTodo               Todo
-  HiLink racketNote               SpecialComment
-  HiLink racketError              Error
-
-  HiLink racketExtSyntax          Type
-  HiLink racketExtFunc            PreProc
-  delcommand HiLink
-endif
+highlight default link racketExtSyntax Type
+highlight default link racketExtFunc PreProc
 
 let b:current_syntax = "racket"
