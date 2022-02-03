@@ -5,3 +5,4 @@ if exists(":CompilerSet") != 2
 endif
 
 CompilerSet makeprg=raco
+CompilerSet errorformat=%f:%l:%c:%m
