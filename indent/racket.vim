@@ -32,6 +32,7 @@ setlocal lispwords+=for,for/list,for/fold,for*,for*/list,for*/fold,for/or,for/an
 setlocal lispwords+=for/hash,for/sum,for/flvector,for*/flvector,for/vector,for*/vector,for*/sum,for*/hash
 setlocal lispwords+=for/async
 setlocal lispwords+=for/set,for*/set
+setlocal lispwords+=for/first,for*/first
 
 setlocal lispwords+=match,match*,match/values,define/match,match-lambda,match-lambda*,match-lambda**
 setlocal lispwords+=match-let,match-let*,match-let-values,match-let*-values
