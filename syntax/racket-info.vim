@@ -1,5 +1,7 @@
 " Vim syntax file
-" Language:     #lang info
+" Language:     Racket (#lang info)
+" Maintainer:   D. Ben Knoble <ben.knoble+github@gmail.com>
+" URL:          https://github.com/benknoble/vim-racket
 
 " Initializing:
 if exists("b:current_syntax")

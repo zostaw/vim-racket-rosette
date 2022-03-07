@@ -1,8 +1,9 @@
 " Vim syntax file
-" Language:     Racket
-" Maintainer:   Will Langstroth <will@langstroth.com>
-" URL:          http://github.com/wlangstroth/vim-racket.git
-" Description:  Contains all of the keywords in #lang racket
+" Language:             Racket
+" Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
+" Previous Maintainer:  Will Langstroth <will@langstroth.com>
+" URL:                  https://github.com/benknoble/vim-racket
+" Description:          Contains all of the keywords in #lang racket
 
 " Initializing:
 if exists("b:current_syntax")

@@ -1,6 +1,8 @@
-" Language:     Racket
-" Maintainer:   Will Langstroth <will@langstroth.com>
-" URL:          http://github.com/wlangstroth/vim-racket
+" Vim filetype plugin
+" Language:             Racket
+" Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
+" Previous Maintainer:  Will Langstroth <will@langstroth.com>
+" URL:                  https://github.com/benknoble/vim-racket
 
 if exists("b:did_ftplugin")
   finish

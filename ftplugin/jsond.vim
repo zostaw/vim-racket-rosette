@@ -1,4 +1,7 @@
-" Language:     jsond
+" Vim filetype plugin
+" Language:     Racket (#lang jsond)
+" Maintainer:   D. Ben Knoble <ben.knoble+github@gmail.com>
+" URL:          https://github.com/benknoble/vim-racket
 
 if exists("b:did_ftplugin")
   finish

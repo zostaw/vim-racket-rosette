@@ -1,5 +1,7 @@
 " Vim syntax file
-" Language:     #lang jsond
+" Language:     Racket (#lang jsond)
+" Maintainer:   D. Ben Knoble <ben.knoble+github@gmail.com>
+" URL:          https://github.com/benknoble/vim-racket
 
 if exists("b:current_syntax")
   finish
