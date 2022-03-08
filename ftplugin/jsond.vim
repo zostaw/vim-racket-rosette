@@ -21,5 +21,5 @@ let b:ale_linter_aliases = ['racket']
 " (this should be amended if settings/mappings are added above!)
 let b:undo_ftplugin =
       \  "setl comments< formatoptions<"
-      \. "| setl commentstring<"
-      \. "| unlet b:ale_linter_aliases"
+      \. " | setl commentstring<"
+      \. " | unlet! b:ale_linter_aliases"
