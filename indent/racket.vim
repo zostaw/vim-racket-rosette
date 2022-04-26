@@ -42,5 +42,6 @@ setlocal lispwords+=let/cc,let/ec
 
 " qi
 setlocal lispwords+=define-flow,define-switch,flow-lambda,switch-lambda,on,switch,π,λ01
+setlocal lispwords+=define-qi-syntax,define-qi-syntax-parser,define-qi-syntax-rule
 
 let b:undo_indent = "setlocal lisp< ai< si< lw<"
