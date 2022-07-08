@@ -29,6 +29,14 @@ let g:racket_hash_lang_dict =
       \   'info': 'racket-info',
       \   'setup/infotab': 'racket-info',
       \   'syntax/module-reader': 'racket',
+      \   'slideshow': 'racket',
+      \   'plai': 'racket',
+      \   'eopl': 'racket',
+      \   'htdp/bsl': 'racket',
+      \   'htdp/bsl+': 'racket',
+      \   'htdp/isl': 'racket',
+      \   'htdp/isl+': 'racket',
+      \   'htdp/asl': 'racket',
       \ }, 'keep') " keep prefers user dict to the default
 
 " Tries to detect filetype from #lang line; defaults to ft=racket.
