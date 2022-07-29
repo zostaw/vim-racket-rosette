@@ -23,7 +23,11 @@ setlocal lispwords+=with-input-from-file,with-output-to-file
 
 " Racket OOP
 " TODO missing a lot of define-like forms here (e.g., define/augment, etc.)
-setlocal lispwords+=class,class*,mixin,interface,define/public,define/private,define/override
+setlocal lispwords+=class,class*,mixin,interface,class/derived
+setlocal lispwords+=define/public,define/pubment,define/public-final
+setlocal lispwords+=define/override,define/overment,define/override-final
+setlocal lispwords+=define/augment,define/augride,define/augment-final
+setlocal lispwords+=define/private
 
 " kanren
 setlocal lispwords+=fresh,run,run*,project,conde,condu
