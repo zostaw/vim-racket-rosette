@@ -36,9 +36,7 @@ if !exists("no_plugin_maps") && !exists("no_racket_maps")
     redraw!
   endfunction
   nnoremap <buffer> <Plug>RacketDoc :call <SID>RacketDoc(expand('<cword>'))<CR>
-  if maparg("K", "n") == ""
-    nmap <buffer> K <Plug>RacketDoc
-  endif
+  nmap <buffer> K <Plug>RacketDoc
 
   " For the visual mode K mapping, it's slightly more convoluted to get the
   " selected text:
@@ -55,9 +53,7 @@ if !exists("no_plugin_maps") && !exists("no_racket_maps")
   endfunction
 
   vnoremap <buffer> <Plug>RacketDoc :call <SID>Racket_visual_doc()<cr>
-  if maparg("K", "v") == ""
-    vmap <buffer> K <Plug>RacketDoc
-  endif
+  vmap <buffer> K <Plug>RacketDoc
 
   let b:undo_ftplugin .=
       \  " | silent! execute 'nunmap <buffer> K'"
