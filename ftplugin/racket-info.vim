@@ -53,9 +53,9 @@ if !exists("no_plugin_maps") && !exists("no_racket-info_maps")
     endtry
   endfunction
 
-  vnoremap <buffer> <Plug>RacketDoc :call <SID>Racket_visual_doc()<cr>
+  xnoremap <buffer> <Plug>RacketDoc :call <SID>Racket_visual_doc()<cr>
   if maparg("K", "v") == ""
-    vmap <buffer> K <Plug>RacketDoc
+    xmap <buffer> K <Plug>RacketDoc
   endif
 
   let b:undo_ftplugin .=

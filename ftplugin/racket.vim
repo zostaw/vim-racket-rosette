@@ -52,8 +52,8 @@ if !exists("no_plugin_maps") && !exists("no_racket_maps")
     endtry
   endfunction
 
-  vnoremap <buffer> <Plug>RacketDoc :call <SID>Racket_visual_doc()<cr>
-  vmap <buffer> K <Plug>RacketDoc
+  xnoremap <buffer> <Plug>RacketDoc :call <SID>Racket_visual_doc()<cr>
+  xmap <buffer> K <Plug>RacketDoc
 
   let b:undo_ftplugin .=
       \  " | silent! execute 'nunmap <buffer> K'"
