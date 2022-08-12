@@ -3,6 +3,7 @@
 " Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
 " Previous Maintainer:  Will Langstroth <will@langstroth.com>
 " URL:                  https://github.com/benknoble/vim-racket
+" Last Change: 2022 Aug 12
 
 if exists("b:did_ftplugin")
   finish

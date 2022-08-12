@@ -2,6 +2,7 @@
 " Language:     Racket (#lang info)
 " Maintainer:   D. Ben Knoble <ben.knoble+github@gmail.com>
 " URL:          https://github.com/benknoble/vim-racket
+" Last Change: 2022 Aug 12
 
 " Initializing:
 if exists("b:current_syntax")
