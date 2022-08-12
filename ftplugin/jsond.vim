@@ -1,4 +1,7 @@
-" Language:     jsond
+" Vim filetype plugin
+" Language:     Racket (#lang jsond)
+" Maintainer:   D. Ben Knoble <ben.knoble+github@gmail.com>
+" URL:          https://github.com/benknoble/vim-racket
 
 if exists("b:did_ftplugin")
   finish
@@ -18,5 +21,5 @@ let b:ale_linter_aliases = ['racket']
 " (this should be amended if settings/mappings are added above!)
 let b:undo_ftplugin =
       \  "setl comments< formatoptions<"
-      \. "| setl commentstring<"
-      \. "| unlet b:ale_linter_aliases"
+      \. " | setl commentstring<"
+      \. " | unlet! b:ale_linter_aliases"
