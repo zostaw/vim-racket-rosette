@@ -61,7 +61,7 @@ if !exists("no_plugin_maps") && !exists("no_racket-info_maps")
 
   let b:undo_ftplugin .=
       \  " | silent! execute 'nunmap <buffer> K'"
-      \. " | silent! execute 'vunmap <buffer> K'"
+      \. " | silent! execute 'xunmap <buffer> K'"
 endif
 
 let b:ale_linter_aliases = ['racket']

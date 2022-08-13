@@ -58,7 +58,7 @@ if !exists("no_plugin_maps") && !exists("no_racket_maps")
 
   let b:undo_ftplugin .=
       \  " | silent! execute 'nunmap <buffer> K'"
-      \. " | silent! execute 'vunmap <buffer> K'"
+      \. " | silent! execute 'xunmap <buffer> K'"
 endif
 
 if (has("gui_win32") || has("gui_gtk")) && !exists("b:browsefilter")
