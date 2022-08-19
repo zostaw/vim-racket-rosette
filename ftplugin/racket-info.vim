@@ -19,10 +19,12 @@ setl formatoptions+=r
 "setl commentstring=;;%s
 setl commentstring=#\|\ %s\ \|#
 
+setlocal formatprg=raco\ fmt
+
 " Undo our settings when the filetype changes away from Racket
 " (this should be amended if settings/mappings are added above!)
 let b:undo_ftplugin =
-      \  "setl iskeyword< lispwords< lisp< comments< formatoptions<"
+      \  "setl iskeyword< lispwords< lisp< comments< formatoptions< formatprg<"
       \. " | setl commentstring<"
 
 if !exists("no_plugin_maps") && !exists("no_racket-info_maps")
