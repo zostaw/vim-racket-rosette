@@ -14,23 +14,23 @@ let b:did_ftplugin = 1
 setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,94
 
 " Enable auto begin new comment line when continuing from an old comment line
-setl comments=:;;;;,:;;;,:;;,:;
-setl formatoptions+=r
+setlocal comments=:;;;;,:;;;,:;;,:;
+setlocal formatoptions+=r
 
-"setl commentstring=;;%s
-setl commentstring=#\|\ %s\ \|#
+"setlocal commentstring=;;%s
+setlocal commentstring=#\|\ %s\ \|#
 
 setlocal formatprg=raco\ fmt
 
 " Undo our settings when the filetype changes away from Racket
 " (this should be amended if settings/mappings are added above!)
 let b:undo_ftplugin =
-      \  "setl iskeyword< lispwords< lisp< comments< formatoptions< formatprg<"
-      \. " | setl commentstring<"
+      \  "setlocal iskeyword< lispwords< lisp< comments< formatoptions< formatprg<"
+      \. " | setlocal commentstring<"
 
 if !exists("no_plugin_maps") && !exists("no_racket_maps")
   " Simply setting keywordprg like this works:
-  "    setl keywordprg=raco\ docs
+  "    setlocal keywordprg=raco\ docs
   " but then vim says:
   "    "press ENTER or type a command to continue"
   " We avoid the annoyance of having to hit enter by remapping K directly.
