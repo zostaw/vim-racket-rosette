@@ -67,8 +67,9 @@ if !exists("no_plugin_maps") && !exists("no_racket_maps")
 endif
 
 if (has("gui_win32") || has("gui_gtk")) && !exists("b:browsefilter")
-  let b:browsefilter = "Racket Source Files (*.rkt *.rktl)\t*.rkt;*.rktl\n" .
-        \              "All Files (*.*)\t*.*\n"
+  let b:browsefilter =
+        \  "Racket Source Files (*.rkt *.rktl)\t*.rkt;*.rktl\n"
+        \. "All Files (*.*)\t*.*\n"
   let b:undo_ftplugin .= " | unlet! b:browsefilter"
 endif
 
