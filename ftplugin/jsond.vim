@@ -9,6 +9,9 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
+let s:cpo_save = &cpo
+set cpo&vim
+
 " Enable auto begin new comment line when continuing from an old comment line
 setlocal comments=:;;;;,:;;;,:;;,:;
 setlocal formatoptions+=r
@@ -24,3 +27,6 @@ let b:undo_ftplugin =
       \  "setlocal comments< formatoptions<"
       \. " | setlocal commentstring<"
       \. " | unlet! b:ale_linter_aliases"
+
+let &cpo = s:cpo_save
+unlet s:cpo_save

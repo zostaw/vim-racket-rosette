@@ -9,6 +9,9 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
+let s:cpo_save = &cpo
+set cpo&vim
+
 " quick hack to allow adding values
 setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,94
 
@@ -69,3 +72,6 @@ endif
 let b:ale_linter_aliases = ['racket']
 
 let b:undo_ftplugin .= " | unlet! b:ale_linter_aliases"
+
+let &cpo = s:cpo_save
+unlet s:cpo_save
