@@ -3,12 +3,15 @@
 " Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
 " Previous Maintainer:  Will Langstroth <will@langstroth.com>
 " URL:                  https://github.com/benknoble/vim-racket
-" Last Change: 2022 Aug 12
+" Last Change:          2022 Aug 29
 
 if exists("b:did_ftplugin")
   finish
 endif
 let b:did_ftplugin = 1
+
+let s:cpo_save = &cpo
+set cpo&vim
 
 " quick hack to allow adding values
 setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,94
@@ -64,8 +67,9 @@ if !exists("no_plugin_maps") && !exists("no_racket_maps")
 endif
 
 if (has("gui_win32") || has("gui_gtk")) && !exists("b:browsefilter")
-  let b:browsefilter = "Racket Source Files (*.rkt *.rktl)\t*.rkt;*.rktl\n" .
-        \              "All Files (*.*)\t*.*\n"
+  let b:browsefilter =
+        \  "Racket Source Files (*.rkt *.rktl)\t*.rkt;*.rktl\n"
+        \. "All Files (*.*)\t*.*\n"
   let b:undo_ftplugin .= " | unlet! b:browsefilter"
 endif
 
@@ -74,3 +78,5 @@ if exists("loaded_matchit") && !exists("b:match_words")
   let b:undo_ftplugin .= " | unlet! b:match_words"
 endif
 
+let &cpo = s:cpo_save
+unlet s:cpo_save

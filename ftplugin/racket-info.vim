@@ -2,12 +2,15 @@
 " Language:     Racket (#lang info)
 " Maintainer:   D. Ben Knoble <ben.knoble+github@gmail.com>
 " URL:          https://github.com/benknoble/vim-racket
-" Last Change: 2022 Aug 12
+" Last Change:  2022 Aug 29
 
 if exists("b:did_ftplugin")
   finish
 endif
 let b:did_ftplugin = 1
+
+let s:cpo_save = &cpo
+set cpo&vim
 
 " quick hack to allow adding values
 setlocal iskeyword=@,!,#-',*-:,<-Z,a-z,~,_,94
@@ -69,3 +72,6 @@ endif
 let b:ale_linter_aliases = ['racket']
 
 let b:undo_ftplugin .= " | unlet! b:ale_linter_aliases"
+
+let &cpo = s:cpo_save
+unlet s:cpo_save

@@ -2,12 +2,15 @@
 " Language:     Racket (#lang jsond)
 " Maintainer:   D. Ben Knoble <ben.knoble+github@gmail.com>
 " URL:          https://github.com/benknoble/vim-racket
-" Last Change: 2022 Aug 12
+" Last Change:  2022 Aug 29
 
 if exists("b:did_ftplugin")
   finish
 endif
 let b:did_ftplugin = 1
+
+let s:cpo_save = &cpo
+set cpo&vim
 
 " Enable auto begin new comment line when continuing from an old comment line
 setlocal comments=:;;;;,:;;;,:;;,:;
@@ -24,3 +27,6 @@ let b:undo_ftplugin =
       \  "setlocal comments< formatoptions<"
       \. " | setlocal commentstring<"
       \. " | unlet! b:ale_linter_aliases"
+
+let &cpo = s:cpo_save
+unlet s:cpo_save
