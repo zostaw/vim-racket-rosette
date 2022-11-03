@@ -3,7 +3,7 @@
 " Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
 " Previous Maintainer:  Will Langstroth <will@langstroth.com>
 " URL:                  https://github.com/benknoble/vim-racket
-" Last Change: 2022 Aug 12
+" Last Change: 2022 Nov 03
 
 if exists("b:did_indent")
    finish
@@ -23,6 +23,7 @@ setlocal lispwords+=define-opt/c,define-syntax-rule
 setlocal lispwords+=define-test-suite
 setlocal lispwords+=struct
 setlocal lispwords+=with-input-from-file,with-output-to-file
+setlocal lispwords+=begin,begin0
 
 " Racket OOP
 " TODO missing a lot of define-like forms here (e.g., define/augment, etc.)
