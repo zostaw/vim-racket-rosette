@@ -12,7 +12,7 @@ let b:did_indent = 1
 
 setlocal lisp autoindent nosmartindent
 
-setlocal lispwords+=module,module*,module+,parameterize,let-values,let*-values,letrec-values,local
+setlocal lispwords+=module,module*,module+,parameterize,parameterize*,let-values,let*-values,letrec-values,local
 setlocal lispwords+=define/contract
 setlocal lispwords+=λ
 setlocal lispwords+=with-handlers
