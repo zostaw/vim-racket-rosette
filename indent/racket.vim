@@ -3,7 +3,7 @@
 " Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
 " Previous Maintainer:  Will Langstroth <will@langstroth.com>
 " URL:                  https://github.com/benknoble/vim-racket
-" Last Change: 2022 Nov 03
+" Last Change: 2022 Nov 05
 
 if exists("b:did_indent")
    finish
@@ -18,6 +18,7 @@ setlocal lispwords+=λ
 setlocal lispwords+=with-handlers
 setlocal lispwords+=define-values,opt-lambda,case-lambda,syntax-rules,with-syntax,syntax-case,syntax-parse
 setlocal lispwords+=define-for-syntax,define-syntax-parser,define-syntax-parse-rule,define-syntax-class,define-splicing-syntax-class
+setlocal lispwords+=define-syntax-parameter,syntax-parameterize
 setlocal lispwords+=define-signature,unit,unit/sig,compund-unit/sig,define-values/invoke-unit/sig
 setlocal lispwords+=define-opt/c,define-syntax-rule
 setlocal lispwords+=define-test-suite
