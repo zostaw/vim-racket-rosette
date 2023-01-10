@@ -25,6 +25,7 @@ setlocal lispwords+=define-test-suite
 setlocal lispwords+=struct
 setlocal lispwords+=with-input-from-file,with-output-to-file
 setlocal lispwords+=begin,begin0
+setlocal lispwords+=place
 
 " Racket OOP
 " TODO missing a lot of define-like forms here (e.g., define/augment, etc.)
