@@ -41,6 +41,7 @@ let g:racket_hash_lang_dict =
       \   'web-server': 'racket',
       \   'web-server/insta': 'racket',
       \   'sicp': 'racket',
+      \   'scheme/base': 'scheme',
       \ }, 'keep') " keep prefers user dict to the default
 
 " Tries to detect filetype from #lang line; defaults to ft=racket.
