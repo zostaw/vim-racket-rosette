@@ -10,7 +10,7 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
-setlocal lisp autoindent nosmartindent
+setlocal indentexpr=racket#Indent() lisp lispoptions+=expr:1 autoindent nosmartindent
 
 setlocal lispwords+=module,module*,module+,parameterize,parameterize*,let-values,let*-values,letrec-values,local
 setlocal lispwords+=define/contract
@@ -63,4 +63,4 @@ setlocal lispwords+=if-view,case-view,cond-view,list-view,dyn-view
 setlocal lispwords+=case/dep
 setlocal lispwords+=define/obs
 
-let b:undo_indent = "setlocal lisp< ai< si< lw<"
+let b:undo_indent = "setlocal indentexpr< lisp< lispoptions< ai< si< lw<"
