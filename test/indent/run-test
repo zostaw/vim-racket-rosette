@@ -1,0 +1,5 @@
+#! /bin/sh
+
+rm -f errors
+time vim -S test.vim || { cat errors >&2; exit 1; }
+# time vim -c 'breakadd file test.vim' -S test.vim || { cat errors >&2; exit 1; }

@@ -10,7 +10,10 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
-setlocal indentexpr=racket#Indent() lisp lispoptions+=expr:1 autoindent nosmartindent
+setlocal lisp autoindent nosmartindent
+if has('vim9script')
+  setlocal indentexpr=racket#Indent() lispoptions+=expr:1
+endif
 
 setlocal lispwords+=module,module*,module+,parameterize,parameterize*,let-values,let*-values,letrec-values,local
 setlocal lispwords+=define/contract

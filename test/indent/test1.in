@@ -1,0 +1,61 @@
+#lang racket
+
+(define (html-file base)
+(format "(~a).html"
+base))
+
+(foo
+bar)
+
+'("foo"
+bar)
+
+(void (writeln #<<EOF
+   foo
+bar
+EOF
+))
+
+(define-syntax-parse-rule (page name title body ...)
+(with-output-to-file
+(html-file name)
+(λ ()
+(let ([ti title])
+(as title ti)
+(with center 
+(as h2 (string-upcase ti)))
+(brs 3)
+body ...))))
+
+;;; Utilities for generating links
+
+(define-syntax-rule (with-link dest body ...)
+(begin
+(displayln (format "<a href=\"~a\">" (html-file dest)))
+body ...
+(displayln "</a>")))
+
+(define/match ((f x) #:y [y '(1 2 3)])
+[{(regexp #rx"p+"
+_)
+`(,a 2 3)}
+a]
+[{_ _} #f])
+
+(cond
+[#t 1])
+
+(for/list ([herb herb-kinds])
+(~a (for/sum ([loot (in-list loots)]
+#:when (and (herb? loot)
+(equal? herb (herb-name loot))))
+1)))
+
+(for/fold ([x null])
+([y (range 5)])
+(cons y x))
+
+(for/fold ([x null])
+([y (range 5)]
+[z (range 5)])
+(cons y x))
