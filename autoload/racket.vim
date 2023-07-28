@@ -45,6 +45,8 @@ export def Indent(): number
     # Special case for/fold &co. The iterator clause (2nd form) is indented
     # under the accumulator clause (1st form). Everything else is standard.
     const start_of_first_form = match(line[bracket.column :], MakePatternFromLiterals(openers))
+    # assert_report(printf('{line: %s}', line))
+    # assert_report(printf('{start: %s}', start_of_first_form >= 0 ? line[bracket.column + start_of_first_form :] : '<NULL>'))
     if IsForFold(lw) && IsSecondForm(bracket.line, bracket.column, v:lnum) && start_of_first_form >= 0
       return amount + start_of_first_form
     else
@@ -55,7 +57,8 @@ export def Indent(): number
       return amount + 1
     endif
   else
-    return amount + IndentForContinuation(line[bracket.column :])
+    # assert_report(printf('{line: %s}', line[bracket.column :]))
+    return amount + IndentForContinuation(bracket.line, bracket.column, line[bracket.column :])
   endif
 enddef
 
@@ -88,13 +91,29 @@ def Lispword(line: string): string
   return &l:lispwords->split(',')->index(word) >= 0 ? word : ''
 enddef
 
-def IndentForContinuation(line: string): number
+# line contains everything on line_nr after column
+def IndentForContinuation(line_nr: number, column: number, line: string): number
   const end = len(line)
   var indent = match(line, '[^[:space:]]')
   # first word is a string or some other literal (or maybe a form); assume that
   # the current line is outside such a thing
-  if indent < end && ['"', '#', '(', '[', '{']->index(line[indent]) >= 0
+  if indent < end && ['"', '#']->index(line[indent]) >= 0
     return indent
+  endif
+  if indent < end && ["'", '`']->index(line[indent]) >= 0
+    # could be a form or a word. Advance one and see.
+    ++indent
+  endif
+  if indent < end && ['(', '[', '{']->index(line[indent]) >= 0
+    # there's a form; assume outside, but need to skip it to see if any others
+    cursor(line_nr, column + indent + 1)
+    # assert_report(getline(line_nr)[column + indent :])
+    normal! %
+    const [_, matched_line, matched_col, _, _] = getcursorcharpos()
+    if line_nr != matched_line || matched_col == column + indent + 1
+      return indent
+    endif
+    indent = matched_col - column
   endif
   var in_delim: bool
   var quoted: bool

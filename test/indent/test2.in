@@ -1,0 +1,19 @@
+(match '(foo bar)
+[`(foo ,bar) 1
+2])
+
+(match 'foo
+['foo 1
+2])
+
+(cond
+['foo 1
+2])
+
+(cond
+[f 1
+2])
+
+(cond
+[(f 1) 1
+2])
