@@ -63,14 +63,7 @@ export def Indent(): number
 enddef
 
 def InHerestring(start: number): bool
-  if synID(start, col('$') - 1, 0)->synIDattr('name') =~? 'string'
-    var line: number = start
-    while 0 < line && synID(line, col('$') - 1, 0)->synIDattr('name') =~? 'string'
-      --line
-    endwhile
-    return 0 < line && getline(line) =~ '#<<.*$'
-  endif
-  return false
+  return synID(start, col([start, '$']) - 1, 0)->synIDattr('name') =~? 'herestring'
 enddef
 
 def FindBracket(): dict<any>
