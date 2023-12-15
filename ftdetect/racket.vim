@@ -21,6 +21,8 @@ let g:racket_hash_lang_dict =
       \   'racket/base': 'racket',
       \   'racket/gui': 'racket',
       \   'racket/gui/easy': 'racket',
+      \   'racket/unit': 'racket',
+      \   'racket/signature': 'racket',
       \   'typed/racket': 'racket',
       \   'typed/racket/base': 'racket',
       \   'br': 'racket',
