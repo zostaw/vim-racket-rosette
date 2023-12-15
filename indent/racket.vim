@@ -3,7 +3,7 @@
 " Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
 " Previous Maintainer:  Will Langstroth <will@langstroth.com>
 " URL:                  https://github.com/benknoble/vim-racket
-" Last Change: 2022 Nov 05
+" Last Change:          2023 Jul 17
 
 if exists("b:did_indent")
    finish

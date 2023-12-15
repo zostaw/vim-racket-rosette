@@ -1,3 +1,6 @@
+" Maintainer: D. Ben Knoble <ben.knoble+github@gmail.com>
+" URL: https://github.com/benknoble/vim-racket
+" Last Change: 2023 Sep 22
 vim9script
 
 def MakePatternFromLiterals(xs: list<string>): string
