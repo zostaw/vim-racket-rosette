@@ -4,6 +4,7 @@ let g:racket_hash_lang_modifiers =
       \ 's-exp',
       \ 'errortrace',
       \ 'pollen/mode',
+      \ 'debug',
       \ ])
 
 let g:racket_hash_lang_modifiers_regex =
