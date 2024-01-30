@@ -66,4 +66,4 @@ setlocal lispwords+=if-view,case-view,cond-view,list-view,dyn-view
 setlocal lispwords+=case/dep
 setlocal lispwords+=define/obs
 
-let b:undo_indent = "setlocal indentexpr< lisp< lispoptions< ai< si< lw<"
+let b:undo_indent = "setlocal lisp< ai< si< lw<" .. (has('vim9script') ? 'indentexpr< lispoptions<' : '')
