@@ -209,5 +209,5 @@ def IsSecondForm(blnum: number, bcol: number, vlnum: number): bool
   endwhile
 
   # assert_report(printf('forms seen pre-return: %d', forms_seen))
-  return forms_seen == 2 || (forms_seen == 1 && !empty(stack))
+  return (forms_seen == 2 && empty(stack)) || (forms_seen == 1 && !empty(stack))
 enddef

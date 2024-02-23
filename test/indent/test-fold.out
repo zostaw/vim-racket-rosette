@@ -1,0 +1,11 @@
+#lang racket
+
+(define (query-builder clauses)
+  (for/fold ([query-pieces (list)]
+             [parameter-args (list)]
+             [current-parameter 1]
+             #:result (values (string-append* (reverse query-pieces))
+                              (reverse parameter-args)))
+            ([clause (in-list clauses)])
+    (match clause
+      [#t #t])))
