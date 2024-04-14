@@ -3,7 +3,7 @@
 " Maintainer:           D. Ben Knoble <ben.knoble+github@gmail.com>
 " Previous Maintainer:  Will Langstroth <will@langstroth.com>
 " URL:                  https://github.com/benknoble/vim-racket
-" Last Change:          2024 Jan 31
+" Last Change:          2024 Apr 14
 
 if exists("b:did_indent")
    finish
@@ -30,6 +30,11 @@ setlocal lispwords+=with-input-from-file,with-output-to-file
 setlocal lispwords+=begin,begin0
 setlocal lispwords+=place
 setlocal lispwords+=cond
+" Racket style indents if like a function application:
+" (if test
+"     then
+"     else)
+setlocal lispwords-=if
 
 " Racket OOP
 " TODO missing a lot of define-like forms here (e.g., define/augment, etc.)
