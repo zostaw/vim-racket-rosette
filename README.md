@@ -17,6 +17,10 @@ global mapping on `]` to insert the right closer.
 
 ## Thanks
 
+This version is an updated fork of
+[wlangstroth/vim-racket](https://github.com/wlangstroth/vim-racket) with
+improved Racket support.
+
 Most of the real work on this module was done by [Dale
 Vaillancourt](https://github.com/dalev), [Paul
 Cannon](https://github.com/thepaul) and [Asumu
