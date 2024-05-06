@@ -21,6 +21,7 @@ setlocal lispwords+=λ
 setlocal lispwords+=with-handlers
 setlocal lispwords+=define-values,opt-lambda,case-lambda,syntax-rules,with-syntax,syntax-case,syntax-parse
 setlocal lispwords+=define-for-syntax,define-syntax-parser,define-syntax-parse-rule,define-syntax-class,define-splicing-syntax-class
+setlocal lispwords+=syntax/loc,quasisyntax/loc
 setlocal lispwords+=define-syntax-parameter,syntax-parameterize
 setlocal lispwords+=define-signature,unit,unit/sig,compund-unit/sig,define-values/invoke-unit/sig
 setlocal lispwords+=define-opt/c,define-syntax-rule
