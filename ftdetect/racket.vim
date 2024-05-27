@@ -21,6 +21,8 @@ let g:racket_hash_lang_dict =
       \ extend(get(g:, 'racket_hash_lang_dict', #{}), {
       \   'racket/base': 'racket',
       \   'racket/gui': 'racket',
+      \   'rosette': 'racket',
+      \   'rosette/safe': 'racket',
       \   'racket/gui/easy': 'racket',
       \   'racket/unit': 'racket',
       \   'racket/signature': 'racket',
